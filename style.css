@@ -1,92 +1,310 @@
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-  }
-  
-  .fa:hover {
-      opacity: 0.7;
-  }
-  
-  .fa-facebook {
-    background: #3B5998;
-    color: white;
-  }
-  
-  .fa-twitter {
-    background: #55ACEE;
-    color: white;
-  }
+html {
+  background: #eee;
+}
 
-  .fab  {
-    background: #007bb5;
-    color: white;
-  }
-  
-  .fa-youtube {
-    background: #bb0000;
-    color: white;
-  }
-  
-  .fa-instagram {
-    background: #125688;
-    color: white;
-  }
+body{
+  margin: 0;
+  margin-top: 0px;
+  height: 100%;
+  width: 100%;
+ 
+}
+
+
+/* ######### for making responsive ############ */
+
 /* For mobile phones: */
 [class*="col-"] {
-  width: 100%;
+width: 100%;
 }
 
 @media only screen and (min-width: 600px) {
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
+/* For tablets: */
+.col-s-1 {width: 8.33%;}
+.col-s-2 {width: 16.66%;}
+.col-s-3 {width: 25%;}
+.col-s-4 {width: 33.33%;}
+.col-s-5 {width: 41.66%;}
+.col-s-6 {width: 50%;}
+.col-s-7 {width: 58.33%;}
+.col-s-8 {width: 66.66%;}
+.col-s-9 {width: 75%;}
+.col-s-10 {width: 83.33%;}
+.col-s-11 {width: 91.66%;}
+.col-s-12 {width: 100%;}
 }
 @media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;} 
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
-.topnav-right{
-  top:0;
-  z-index : 1;
-  padding-right: 15px;
-  margin-right: 10px;
-  float: right;
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;} 
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 }
 
-.heading{
-  text-align: center;
-  text-shadow: -10px 0px 4px #CE5937;
-  padding-top: 3em;
-  padding-bottom: 3em;
-  background-repeat: no-repeat;
-  background-image: url(./assets/wthr_bgrd.jpg);
-  background-size: cover;
+/* ########################################################*/
   
+  
+  
+/* ####################### header section ###################### */
+/* ####### full header ####### */
+.top_sec{
+text-align: center;
+font-weight: 400;
+font-family: 'Limelight', cursive;
+font-family: 'Sigmar One', cursive;
+text-transform:uppercase;
+/* font-weight:bold;
+font-family:'Ubuntu'; */
+padding-top: 1em;
+padding-bottom: 2em;
+background-repeat: no-repeat;
+background-image: url(./asset/background.jpg);
+/* image-rendering: pixelated;
+image-rendering: -webkit-optimize-contrast; */
+background-size: cover;
+}
+.header{
+  height: auto;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+}
+
+
+/* ######### only social icons ######## */
+.topnav-right{
+top:0;
+/* z-index : 1; */
+padding-right: 15px;
+margin-right: 10px;
+float: right;
+font-size: 1.5em;
+
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.fab:hover {
+  opacity: 0.7;
+}
+
+
+.fab  {
+  color: rgb(255, 255, 255);
+  outline: 0px;
+}
+
+/* ##### head word ##### */
+.heading{
+  align-content: center;
+  font-size: xx-large;
+  font-weight: bolder;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+/* #### other pages icons #### */
+.pages{
+display:flex;
+list-style-type: none;
+text-align: center;
+font-size: 1.5em;
+}
+
+li ~ .top_sec{
+  padding-right: 5px;
+  color: black;
+}
+
+
+/* ###################################################### */
+
+.top_image{
+display: none;
+}
+
+.svg_menu{
+display: none;
+}
+
+.bottom_sec {
+padding: 0;
+margin: 0;
+font-family: Quicksand;
+}
+
+
+.box {
+  width: 20vw;
+  height: 60vh;
+  border-radius: 5px;
+  box-shadow: 0 2px 30px rgba(black);
+  background: #cccccc;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  min-width: 200px;
+  min-height: 350px;
+}
+
+.wave {
+  opacity: 0.3;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  background: rgb(4, 145, 211);
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 3000ms infinite linear;
+  z-index: 1;
+}
+
+.wave.-three {
+  animation: drift 5000ms infinite linear;
+  z-index: 2 !important;
+  opacity: 0.2;
+}
+
+.wave.-two {
+  animation: drift 7000ms infinite linear;
+  opacity: 0.1;
+  z-index: 3 !important;
+}
+
+
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  z-index: 4;
+}
+
+.location {
+  text-align: center;
+  font-weight: 800;
+}
+
+.date {
+  text-align: center;
+  margin-top: 5%;
+  color: lighten(grey, 10%);
+  font-size: 70%;
+}
+
+.temp {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.weathercon {
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+}
+
+@media (max-width: 600px) {
+  .box {
+    width: 90vw;
+    height: 100vh;
+  }
+
+  .wave {
+    top: 85%;
+  }
+
+  .weathercon {
+    font-size: 5em;
+  }
+
+  .info {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-height: 500px) {
+  .box {
+    height: 100vh;
+  }
+
+  .wave {
+    top: 115%;
+  }
+}
+
+body > span {
+  width: 100vw;
+  text-align: center;
+  color: grey;
+}
+
+.myButton{
+  background-color: aquamarine;
+  border: none;
+  color: whitesmoke;
+  padding: 10px 55px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  border-radius: 1em;
+  
+}
+.myButton {
+  color: rgb(255, 255, 255); font-size: 16px; line-height: 16px; padding: 6px; border-radius: 10px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+  .myButton:hover {
+  background: #1C6EA4; }
+  .myButton:active {
+  background: #144E75; }
+
+.monthly_bu{
+  text-decoration: none;
+}
+
+.radar_bu{
+  text-decoration: none;
+}
+
+.hots_bu{
+  text-decoration: none;
+  
+}
+
+.logo{
+text-align: left;
+padding-left: 1em;
+font-size: medium;
 }
 
 
