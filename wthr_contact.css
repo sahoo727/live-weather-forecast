@@ -1,0 +1,363 @@
+*{
+    margin:0;
+    padding:0;
+  }
+  html {
+    background-image: linear-gradient(#A7C7E7,#7EA1BB);
+  }
+  
+  body{
+    margin: 0;
+    margin-top: 0px;
+    height: 100%;
+    width: 100%;
+  
+   
+  }
+  
+  
+  header{
+    height:calc(100%-65px);
+    -webkit-appearance: 1500px;
+    perspective: 1500px;
+    perspective-origin: center bottom;
+  }
+  
+  
+  .tophead{
+    position: relative;
+    background-size: cover;
+    transform-style:preserve-3d ;
+  }
+  
+  /* .pages {
+    position: fixed;
+  
+  } */
+  
+  /* .pg_icon{
+    background-color: #1C6EA4;
+  } */
+  
+  .pgicon{
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Limelight', cursive;
+    font-family: 'Sigmar One', cursive;
+    text-transform:uppercase;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    background-color: #1C6EA4;
+    position: relative;
+  }
+  
+  nav{
+    background: #000a1d;
+    height: 70px;
+  }
+  
+  nav.fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  
+  }
+  
+  .sticky-wrapper{
+    height: 70px;
+  
+  }
+  
+  nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  nav ul li{
+    display: inline-block;
+  }
+  
+  nav ul a{
+  
+    padding: 20px 40px;
+    color: #a1a1a1;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 50;
+    text-transform: uppercase;
+    text-decoration: none;
+  
+  }
+  .logo{
+    text-align: left;
+    padding-left: 1em;
+    font-size: medium;
+    }
+  nav ul .logo {
+    visibility:hidden;
+  }
+  .top_sec{
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Limelight', cursive;
+    font-family: 'Sigmar One', cursive;
+    text-transform:uppercase;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    background-repeat: no-repeat;
+    background-image: url(./asset/background.jpg);
+    background-size: cover;
+    }
+    .header{
+      height: auto;
+      position: fixed;
+      width: 100%;
+      top: 0px;
+    }
+    
+    
+    /* ######### only social icons ######## */
+    .topnav-right{
+    top:0;
+    padding-right: 15px;
+    margin-right: 10px;
+    float: right;
+    font-size: 1.5em;
+    
+    }
+    
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 30px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+    }
+    
+    .fab:hover {
+      opacity: 0.7;
+    }
+    
+    
+    .fab  {
+      color: rgb(255, 255, 255);
+      outline: 0px;
+    }
+    
+    /* ##### head word ##### */
+    .heading{
+      align-content: center;
+      font-size: xx-large;
+      font-weight: bolder;
+      padding-top: 2em;
+      padding-bottom: 2em;
+    }
+    
+    /* #### other pages icons #### */
+    .pages{
+    display:block;
+    list-style-type: none;
+    text-align: relative;
+    font-size: 1.5em;
+    }
+    
+    li ~ .top_sec{
+      padding-right: 5px;
+      color: black;
+    }
+    
+    .svg_menu{
+      display: none;
+    }
+  
+    
+    .sec h2{
+        text-align: center;
+    }
+    .contact{
+      width:80%;
+      padding-left:5rem;
+     
+  }
+  .contact h2{
+      text-align: center;
+  }
+  input[type=text], select, textarea {
+      width: 100%;
+      padding: 1.2rem;
+      border: 0.1rem solid #ccc;
+      border-radius: 0.4rem;
+      box-sizing: border-box;
+      margin-top: 0.6rem;
+      margin-bottom: 1.6rem;
+      resize: vertical;
+    }
+    
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 1.2rem 2rem;
+      border: none;
+      border-radius: 0.4rem;
+      cursor: pointer;
+    }
+    input[type=email] {
+    
+     width: 100%;
+      padding: 1.2rem;
+      border: 0.1rem solid ;
+      border-radius: 0.4rem;
+      box-sizing: border-box;
+      margin-top: 0.6rem;
+      margin-bottom: 1.6rem;
+      resize: vertical;
+          }
+      
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .container {
+      border-radius: 0.5rem;
+      background-color: #f2f2f2;
+      padding: 2rem;
+    }
+    .txt-center {
+      text-align: center;
+  }
+  .hide {
+      display: none;
+  }
+  
+  .clear {
+      float: none;
+      clear: both;
+  }
+  
+  .rating {
+      width: 90px;
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+      position: relative;
+  }
+  
+  .rating > label {
+      float: right;
+      display: inline;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      width: 1.1em;
+      cursor: pointer;
+      color: #000;
+  }
+  
+  .rating > label:hover,
+  .rating > label:hover ~ label,
+  .rating > input.radio-btn:checked ~ label {
+      color: transparent;
+  }
+  
+  .rating > label:hover:before,
+  .rating > label:hover ~ label:before,
+  .rating > input.radio-btn:checked ~ label:before,
+  .rating > input.radio-btn:checked ~ label:before {
+      content: "\2605";
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+  }
+  .mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 200px;
+  position: relative;
+  margin: auto;
+  
+}
+
+/* Caption text */
+.te {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .te {font-size: 11px}
+}
+
+.cs{
+  display:flex;
+  justify-content: space-between;
+}
+.c1{
+  margin-left: 4rem;
+  width:60%;
+}
+.pic{
+  width:40%;
+}
+
+.footer_sec{
+  text-align: center;
+  background-color: #00000048;
+  color: white;
+  height: 2rem;
+  padding-top: 1rem;
+}
