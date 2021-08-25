@@ -1,139 +1,27 @@
-// $(document).ready(function() {
-//   navigator.geolocation.getCurrentPosition(success, error);
 
-//   function success(pos) {
-//     var lat = pos.coords.latitude;
-//     var long = pos.coords.longitude;
-//     weather(lat, long);
-//   }
+//  ############## displaying time ####################
 
-//   function error() {
-//     console.log("There was an error");
-//   }
-
-//   function weather(lat, long) {
-//     var URL = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
-//     $.getJSON(URL, function(data) {
-//       display(data);
-//     });
-//   }
-
-//   function display(data) {
-//     var city = data.name.toUpperCase();
-//     var temp =
-//       Math.round(data.main.temp_max) +
-//       "&deg; C | " +
-//       Math.round(Math.round(data.main.temp_max) * 1.8 + 32) +
-//       "&deg; F";
-//     var desc = data.weather[0].description;
-//     var date = new Date();
-
-//     var months = [
-//       "January",
-//       "February",
-//       "March",
-//       "April",
-//       "May",
-//       "June",
-//       "July",
-//       "August",
-//       "September",
-//       "October",
-//       "November",
-//       "December"
-//     ];
-
-//     var weekday = new Array(7);
-//     weekday[0] = "Sunday";
-//     weekday[1] = "Monday";
-//     weekday[2] = "Tuesday";
-//     weekday[3] = "Wednesday";
-//     weekday[4] = "Thursday";
-//     weekday[5] = "Friday";
-//     weekday[6] = "Saturday";
-
-//     var font_color;
-//     var bg_color;
-//     if (Math.round(data.main.temp_max) > 25) {
-//       font_color = "#d36326";
-//       bg_color = "#f3f5d2";
-//     } else {
-//       font_color = "#44c3de";
-//       bg_color = "#eff3f9";
-//     }
-
-//     if (data.weather[0].main == "Sunny" || data.weather[0].main == "sunny") {
-//       $(".weathercon").html(
-//         "<i class='fas fa-sun' style='color: #d36326;'></i>"
-//       );
-//     } else {
-//       $(".weathercon").html(
-//         "<i class='fas fa-cloud' style='color: #44c3de;'></i>"
-//       );
-//     }
-
-//     var minutes =
-//       date.getMinutes() < 11 ? "0" + date.getMinutes() : date.getMinutes();
-//     var date =
-//       weekday[date.getDay()].toUpperCase() +
-//       " | " +
-//       months[date.getMonth()].toUpperCase().substring(0, 3) +
-//       " " +
-//       date.getDate() +
-//       " | " +
-//       date.getHours() +
-//       ":" +
-//       minutes;
-//     $(".location").html(city);
-//     $(".temp").html(temp);
-//     $(".date").html(date);
-//     $(".box").css("background", bg_color);
-//     $(".location").css("color", font_color);
-//     $(".temp").css("color", font_color);
-//   }
-// });
-
-
-// #################################################################
-
-// $(window).scroll(
-//   function()
-//   {
-//     var topheight = $('header').height();
-//     var ypos = $(document).scrollTop();
-
-//     if(ypos <= topheight){
-//       var effectfactor = ypos / topheight;
-//       var rotation = effectfactor * (Math.PI / 2 - Math.asin((topheight - ypos) / topheight));
-    
-//       $('.top_sec').css({
-//         '-webkit-transform' : 'rotateX('+rotation+'rad)',
-//         'transform' : 'rotateX('+rotation+'rad)',
-//       })
-    
-//       .find('ovelay').css('opacity',effectfactor);
-//     }
-    
-//     if(ypos <= topheight){
-//       $('.pages').removeclass('fixed');
-//     }
-//     else{
-//       $('.pages').addclass('fixed');
-//     }
-    
-//   }
-// );
-
-// ##########################################################
-
-// displaying time
 let dt = new Date()
-let day = dt.getUTCDate();
-let month = dt.getUTCMonth()
-let year = dt.getUTCFullYear()
+let day = dt.getDate().toString().padStart(2,0);
+let month = (dt.getMonth()+1).toString().padStart(2,0);
+let year = dt.getFullYear();
+console.log(dt);
 
 document.getElementById("showdate").innerText = day +" - "+ month +" - "+ year ;
 
+function realtime(){
+  let dt = new Date();
+  let hour = dt.getHours().toString().padStart(2,0);          //tostring and padstart is to make numbers always in two digit
+  let minute = dt.getMinutes().toString().padStart(2,0);
+  let second = dt.getSeconds().toString().padStart(2,0);
+  document.getElementById("showtime").innerText = hour +" : "+minute+" : "+second;
+}
+
+setInterval(realtime,1000);     // to display the updated time after every 1 sec
+
+
+
+// ############### adding the cities,temp,wind speed ####################
 
 let cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad", "Ahmedabad", "kolkata", "Bhubaneswar", "Ranchi", "Lucknow"];
 let i = 1;
@@ -154,28 +42,166 @@ let weather ={
       
   },
 
+
+
   displayWeather : function(data,num){
 
-    const { name } = data;
-    const { temp } = data.main;
-    const { speed } = data.wind;
+    const { name }      = data;
+    const { temp }      = data.main;
+    const { main }      = data.weather[0];
+    const { country }   = data.sys;
+    const { humidity }  = data.main;
+    const { icon }      = data.weather[0];
+    
+    if (num > 0) {
+      document.querySelector(`.city${num}`).innerText = name;
+      document.querySelector(`.temp${num}`).innerText = temp + " °C";
+      document.querySelector(`.speed${num}`).innerText = main ;
+      document.querySelector(`.cond_img${num}`).src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    }
+    else if(num == 0){
 
-    document.querySelector(`.city${num}`).innerText = name;
-    document.querySelector(`.temp${num}`).innerText = temp + " °C";
-    document.querySelector(`.speed${num}`).innerText = speed + "km/hr";
+      document.querySelector(`.info_specs_1`).innerText = "Country : " + country;
+      document.querySelector(`.info_specs_2`).innerText = "Place : " + name;
+      document.querySelector(`.info_specs_3`).innerText = "Temperature : " + temp + " °C";
+      document.querySelector(`.info_specs_4`).innerText = "Condtion : " + main ;
+      document.querySelector(`.info_specs_5`).innerText = "Humidity : " + humidity + "%";
+      document.querySelector('.cond_img_all').src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    }
+    else if(num == -1){
+      document.querySelector('.box_temp').innerText = temp + " °C";
+      document.querySelector('.box_img').src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    }
 
   },
 
   
 }
 
-
-
 for(ele of cities){
   weather.fetchWeather(ele,i);
   // console.log(`cities `+ ele + i );
   i++;
 }
+
+
+
+// ################################ by reverse coding getting the location of place ###########################
+
+function displayLocation(latitude,longitude){
+
+  var api_key = 'b0c2b02f554f46179c47784140913ab6';
+
+  var api_url = 'https://api.opencagedata.com/geocode/v1/json'
+
+  var request_url = api_url
+  + '?'
+  + 'key=' + api_key
+  + '&q=' + encodeURIComponent(latitude + ',' + longitude)
+  + '&pretty=1'
+  + '&no_annotations=1';
+
+  var request = new XMLHttpRequest();
+  request.open('GET', request_url, true);
+
+  request.onload = function() {
+
+  if (request.status === 200){ 
+    // Success!
+    var data = JSON.parse(request.responseText);
+    console.log(data);
+    let location = data.results[0].components.city;      // getting location
+    document.querySelector('.location').innerHTML = location.toUpperCase();
+    weather.fetchWeather(location , 0);
+    weather.fetchWeather(location , -1);
+    // document.getElementById('fas fa-sun').className = 'fas fa-cloud';
+    // weather.fetchWeather(location , 0);
+  } 
+    
+  else if (request.status <= 500){                      // We reached our target server, but it returned an error              
+    console.log("unable to geocode! Response code: " + request.status);
+    var data = JSON.parse(request.responseText);
+    console.log('error msg: ' + data.status.message);
+  } 
+    
+  else {
+    console.log("server error");
+  }
+  };
+
+  request.onerror = function() {
+  console.log("unable to connect to server");        // There was a connection error of some sort
+  };
+
+  request.send();  // make the request
+}
+
+
+// ############################# getting the latitude and longitude and passing it to the website ################
+var successCallback = function(position){
+  var x = position.coords.latitude;
+  var y = position.coords.longitude;
+  console.log(x,y);
+  displayLocation(x,y);
+  // future_weather( x,y,0);
+};
+  
+var errorCallback = function(error){
+  var errorMessage = 'Unknown error';
+  switch(error.code) {
+    case 1:
+      errorMessage = 'Permission denied';
+      break;
+    case 2:
+      errorMessage = 'Position unavailable';
+      break;
+    case 3:
+      errorMessage = 'Timeout';
+      break;
+  }
+  document.write(errorMessage);
+};
+  
+var options = {
+  enableHighAccuracy: true,
+  timeout: 1000,
+  maximumAge: 0
+};
+  
+navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
+
+
+
+function search(num) {
+  console.log(document.querySelector(`.chart${num}`).value+'js') ;
+  lat_long(document.querySelector(`.chart${num}`).value , num) ;
+
+}
+
+
+
+document
+  .querySelector(`.search_info button`)
+  .addEventListener("click", function(){
+  weather.fetchWeather(document.querySelector('.city_information').value , 0);
+});
+
+document.querySelector(`.city_information`).addEventListener("keyup", function(event){
+  if(event.key == "Enter"){
+    console.log(document.querySelector('.city_information').value + "srch")
+    weather.fetchWeather(document.querySelector('.city_information').value , 0);
+  }
+})
+
+
+
+
+
+
+
+
+
+
 
 
 
