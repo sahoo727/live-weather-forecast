@@ -49,7 +49,7 @@ let Graph = function(week_array , hour_array , time){
 
 function future_weather(latitude , longitude , time){
 
-  let api_key = '79a906e5a48f5d0e463f26621860e188';
+  let api_key = 'Your API key';
   let api_url = 'https://api.openweathermap.org/data/2.5/onecall?lat=';
 
   let request_url = api_url
@@ -121,7 +121,7 @@ function future_weather(latitude , longitude , time){
 
 function lat_long(city , time){
 
-  let api_key = '79a906e5a48f5d0e463f26621860e188';
+  let api_key = 'Your API key';
   let api_url = 'http://api.openweathermap.org/geo/1.0/direct?q=';
 
   let request_url = api_url
