@@ -27,7 +27,7 @@ let cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad", "Ahmedabad
 let i = 1;
 
 let weather ={
-  "apikey" : "79a906e5a48f5d0e463f26621860e188",
+  "apikey" : "Your API ID",
   fetchWeather : function(city,num) {
       console.log(city);
       console.log(num);
@@ -90,7 +90,7 @@ for(ele of cities){
 
 function displayLocation(latitude,longitude){
 
-  var api_key = 'b0c2b02f554f46179c47784140913ab6';
+  var api_key = 'Your API KEY';
 
   var api_url = 'https://api.opencagedata.com/geocode/v1/json'
 
